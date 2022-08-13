@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survay form</title>
+</head>
+<style>
+    .body {
+background-color: rgb(220, 216, 211);
+font-family: Arial, Helvetica, sans-serif;
+    }
+.body-heading{
+ font-size: 20px;
+ color: #666;
+ margin-top: 20px;
+ background-color: rgba(101, 90, 75, 0.173);
+ padding: 5px 10px;
+ width: 70%;
+ height: 30px;
+ border-radius: 3px;
+ border: none;
+ box-shadow: 1px 1px 3px #999;
+}
+.body-box {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #888;
+}
+.header {
+    margin: 0;
+}
+.body-select {
+    display: flex;
+    align-items: center;
+}
+.row {
+ width: 100%;
+ display: flex;
+ justify-content: space-between;
+ 
+}
+.col {
+width: 25%;
+}
+</style>
+<body>
+  
+      <div class="body">
+         <div class="body-heading">
+             <h5 class="header"><span style="color: black; ">Phần 1.</span>Chọn câu trả lời mà bạn đã từng hành động hoặc suy nghĩ sẽ hành động</h5>
+         </div>
+         <div class="body-box">
+             <h2 class="body-question">1.Khi bạn đi đến một nơi nào đó trong ngày, bạn sẽ</h2>
+                 <div class="body-select">
+                     <input type="radio" name="1" class="body-radio">
+                     <p class="body-text">lên danh sách các công việc và thời gian thực hiện các công việc khi bạn đến đó</p>
+                 </div> 
+                 <div class="body-select">
+                    <input type="radio" class="body-radio" name="1">
+                    <p class="body-text">nghĩ đến công việc sẽ làm rồi di thôi</p>
+                </div>     
+            </div> 
+            <div class="body-box">
+                <h2 class="body-question">2.Nếu bạn là một giáo viên, bạn muốn dạy</h2>
+                    <div class="body-select">
+                        <input type="radio" name="2" class="body-radio">
+                        <p class="body-text">Các khóa học thực nghiệm (thực tế)</p>
+                    </div> 
+                    <div class="body-select">
+                       <input type="radio" class="body-radio" name="2">
+                       <p class="body-text">Các khóa học liên quan đến lí thuyết</p>
+                   </div>     
+               </div> 
+               <div class="body-box">
+                <h2 class="body-question">3.Thường thì bạn có phải là một người</h2>
+                    <div class="body-select">
+                        <input type="radio" name="3" class="body-radio">
+                        <p class="body-text">chủ động giao lưu giao tiếp</p>
+                    </div> 
+                    <div class="body-select">
+                       <input type="radio" class="body-radio" name="3">
+                       <p class="body-text">trầm tính và dè dặt</p>
+                   </div>     
+               </div>
+               <div class="body-heading">
+                <h5 class="header"><span>Phần 2.</span>Chọn từ hoặc nhóm từ nào (gần đúng) với cách nghĩ hay hành động của bạn</h5>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="body-box">
+                        <h2 class="body-question">27</h2>
+                            <div class="body-select">
+                                <input type="radio" name="27" class="body-radio">
+                                <p class="body-text">Lên kế hoạch</p>
+                            </div> 
+                            <div class="body-select">
+                               <input type="radio" class="body-radio" name="27">
+                               <p class="body-text">Không lên kế hoạch</p>
+                           </div>     
+                       </div> 
+                </div>
+                <div class="col">
+                    <div class="body-box">
+                        <h2 class="body-question">28</h2>
+                            <div class="body-select">
+                                <input type="radio" name="22" class="body-radio">
+                                <p class="body-text">Các sự kiện </p>
+                            </div> 
+                            <div class="body-select">
+                               <input type="radio" class="body-radio" name="28">
+                               <p class="body-text">Các ý tưởng</p>
+                           </div>     
+                       </div> 
+                </div>
+                <div class="col">
+                    <div class="body-box">
+                        <h2 class="body-question">29</h2>
+                            <div class="body-select">
+                                <input type="radio" name="29" class="body-radio">
+                                <p class="body-text">Trầm tính</p>
+                            </div> 
+                            <div class="body-select">
+                               <input type="radio" class="body-radio" name="29">
+                               <p class="body-text">Nồng nhiệt</p>
+                           </div>     
+                       </div> 
+                </div>
+                <div class="col">
+                    <div class="body-box">
+                        <h2 class="body-question">30</h2>
+                            <div class="body-select">
+                                <input type="radio" name="30" class="body-radio">
+                                <p class="body-text">Có sức thuyết phục</p>
+                            </div> 
+                            <div class="body-select">
+                               <input type="radio" class="body-radio" name="30">
+                               <p class="body-text">Làm cảm động</p>
+                           </div>     
+                       </div> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="body-box">
+                        <h2 class="body-question">27</h2>
+                            <div class="body-select">
+                                <input type="radio" name="27" class="body-radio">
+                                <p class="body-text">Lên kế hoạch</p>
+                            </div> 
+                            <div class="body-select">
+                               <input type="radio" class="body-radio" name="27">
+                               <p class="body-text">Không lên kế hoạch</p>
+                           </div>     
+                       </div> 
+                </div>
+                <div class="col">
+                    <div class="body-box">
+                        <h2 class="body-question">28</h2>
+                            <div class="body-select">
+                                <input type="radio" name="22" class="body-radio">
+                                <p class="body-text">Các sự kiện </p>
+                            </div> 
+                            <div class="body-select">
+                               <input type="radio" class="body-radio" name="28">
+                               <p class="body-text">Các ý tưởng</p>
+                           </div>     
+                       </div> 
+                </div>
+                <div class="col">
+                    <div class="body-box">
+                        <h2 class="body-question">29</h2>
+                            <div class="body-select">
+                                <input type="radio" name="29" class="body-radio">
+                                <p class="body-text">Trầm tính</p>
+                            </div> 
+                            <div class="body-select">
+                               <input type="radio" class="body-radio" name="29">
+                               <p class="body-text">Nồng nhiệt</p>
+                           </div>     
+                       </div> 
+                </div>
+                <div class="col">
+                    <div class="body-box">
+                        <h2 class="body-question">30</h2>
+                            <div class="body-select">
+                                <input type="radio" name="30" class="body-radio">
+                                <p class="body-text">Có sức thuyết phục</p>
+                            </div> 
+                            <div class="body-select">
+                               <input type="radio" class="body-radio" name="30">
+                               <p class="body-text">Làm cảm động</p>
+                           </div>     
+                       </div> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="body-box">
+                        <h2 class="body-question">27</h2>
+                            <div class="body-select">
+                                <input type="radio" name="27" class="body-radio">
+                                <p class="body-text">Lên kế hoạch</p>
+                            </div> 
+                            <div class="body-select">
+                               <input type="radio" class="body-radio" name="27">
+                               <p class="body-text">Không lên kế hoạch</p>
+                           </div>     
+                       </div> 
+                </div>
+                <div class="col">
+                    <div class="body-box">
+                        <h2 class="body-question">28</h2>
+                            <div class="body-select">
+                                <input type="radio" name="22" class="body-radio">
+                                <p class="body-text">Các sự kiện </p>
+                            </div> 
+                            <div class="body-select">
+                               <input type="radio" class="body-radio" name="28">
+                               <p class="body-text">Các ý tưởng</p>
+                           </div>     
+                       </div> 
+                </div>
+                <div class="col">
+                    <div class="body-box">
+                        <h2 class="body-question">29</h2>
+                            <div class="body-select">
+                                <input type="radio" name="29" class="body-radio">
+                                <p class="body-text">Trầm tính</p>
+                            </div> 
+                            <div class="body-select">
+                               <input type="radio" class="body-radio" name="29">
+                               <p class="body-text">Nồng nhiệt</p>
+                           </div>     
+                       </div> 
+                </div>
+                <div class="col">
+                    <div class="body-box">
+                        <h2 class="body-question">30</h2>
+                            <div class="body-select">
+                                <input type="radio" name="30" class="body-radio">
+                                <p class="body-text">Có sức thuyết phục</p>
+                            </div> 
+                            <div class="body-select">
+                               <input type="radio" class="body-radio" name="30">
+                               <p class="body-text">Làm cảm động</p>
+                           </div>     
+                       </div> 
+                </div>
+            </div>
+  </div>
+</body>
+</html>

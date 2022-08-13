@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForumForm</title>
+    <style>
+      
+     .body {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+.body-box {
+ display: flex;
+ align-items: center;
+}
+
+.body-input {
+ margin-left: 8px;
+ width: 200px;
+ height: 20px;
+}
+.body-text {
+    width: 400px;
+}
+.body-input-ex {
+    width: 180px;
+    height: 20px;
+    margin-left: 10px;
+}
+iframe{
+    background-color: rgb(189, 170, 170);
+    width: 600px;
+}
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="body">
+            <div class="body-box">
+                <h5 class="body-name">Tên đăng nhập</h5>
+                <input type="text" class="body-input" required>
+            </div>
+            <div class="body-box">
+                <h5 class="body-name">Mật khẩu</h5>
+                <input type="password" class="body-input" style="margin-right:-25px ;" required>
+            </div>
+            <div class="body-box">
+                <h5 class="body-name">Xác nhận mật khẩu</h5>
+                <input type="password" class="body-input" style="margin-right: 30px;" required>
+            </div>
+            <div class="body-box">
+                <h5 class="body-name">Địa chỉ email</h5>
+                <input type="email" class="body-input" style="margin-right: -10px;" required>
+            </div>
+            <p class="body-text" style="margin-left: 260px; line-height: 30px; text-align: left;"><i> Email này dùng để nhận email kích hoạt tàu khoản, lấy lại mật khẩu
+                ,thông báo từ ban quản trị</i>
+            </p>
+            <div class="body-box">
+                <h5 class="body-name">Xưng danh </h5>
+                <select name="" id="" style="width: 150px; height: 25px; margin-right: 40px; margin-left: 10px;">
+                    <option>Bạn</option>
+                    <option>Ông</option>
+                    <option>Bà</option>
+                </select>
+            </div>
+            <div class="body-box">
+                <h5 class="body-name" style="margin-left: 400px;">Họ và tên</h5>
+                <input type="text" class="body-input-ex" placeholder="Họ" required>
+                <input type="text" class="body-input-ex" placeholder="Tên đệm" required>
+                <input type="text" class="body-input-ex" placeholder="Tên" required>
+            </div>
+            <div class="body-box">
+                <h5 class="body-name">Năm sinh</h5>
+                <input type="email" class="body-input" style="margin-right: -20px;" required>
+            </div>
+            <div class="body-box">
+                <h5 class="body-name" style="margin-right: 10px;">Giới tính</h5>
+                <input type="radio" class="body-radio" name="set" required>
+                 <p>Nam</p>
+                 <input type="radio" class="body-radio" name="set" required>
+                 <p style="margin-right: 100px;">Nữ</p>
+            </div>
+            <div class="body-box">
+                <h5 class="body-name" style="margin-right: 10px;">Địa chỉ liên hệ</h5>
+                <input type="email" class="body-input-200"  style="margin-right: 50px; width: 290px; height: 20px; margin-right: -80px;" required>
+            </div>
+            <div class="body-box">
+                <h5 class="body-name" style="margin-right: 10px;" >Tỉnh thành</h5>
+                <select name="" id="" style="width: 150px; height: 24px; margin-right: 50px;" >
+                    <option value=""></option>
+                    <option>Đà Nẵng</option>
+                    <option>Hồ CHí Minh</option>
+                    <option>Huế</option>
+                    <option>Hải Phòng</option>
+                    <option>Hà Nội</option>
+                </select>
+            </div>
+            <div class="body-box">
+                <h5 class="body-name">Điện thoại</h5>
+                <input type="email" class="body-input">
+            </div>
+            <div class="body-box">
+                <h5 class="body-name">Di động</h5>
+                <input type="email" class="body-input">
+            </div>
+            <iframe src="dieuKhoan.html" frameborder="0" scrolling = "yes"></iframe>
+            <button style="background-color:rgb(24, 87, 182) ;color: white; width: 200px;height: 30px;">Tôi đồng ý đăng kí thành viên</button>
+        </div>
+    </div>
+</body>
+</html>
