@@ -1,12 +1,12 @@
 package com.example.student_managament;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,9 +20,7 @@ import android.widget.Toast;
 import com.example.student_managament.Model.Student;
 import com.example.student_managament.Other.Database;
 
-public class AddStudent extends Fragment {
-
-    private Context context;
+public class UpdateStudent extends Fragment {
     private Button btnBack;
     private Button btnAdd ;
     private EditText edtNameStd;
@@ -36,46 +34,65 @@ public class AddStudent extends Fragment {
     RadioGroup radioGroup ;
     RadioButton radioButtonMale ;
     RadioButton radioButtonFamele;
-
-    @SuppressLint("MissingInflatedId")
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.activity_add_student,container,false);
-        edtNameStd= root.findViewById(R.id.AddName);
-        edtPhoneStd= root.findViewById(R.id.addPhoneNumber);
-        edtEmailStd= root.findViewById(R.id.addEmail);
-        edtAddressStd= root.findViewById(R.id.addAdress);
-        btnBack = root.findViewById(R.id.buttonBack);
-        btnAdd  = (Button) root.findViewById(R.id.buttonAdd);
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.activity_update_student, container, false);
+        edtNameStd= root.findViewById(R.id.UpdateName);
+        edtPhoneStd= root.findViewById(R.id.updatePhoneNumber);
+        edtEmailStd= root.findViewById(R.id.UpdateEmail);
+        edtAddressStd= root.findViewById(R.id.UpdateAdress);
+        btnBack = root.findViewById(R.id.buttonBackUpdate);
+        btnAdd  = (Button) root.findViewById(R.id.buttonUpdate);
         radioGroup = root.findViewById(R.id.radioGroup);
-        radioButtonFamele = root.findViewById(R.id.female);
-        radioButtonMale = root.findViewById(R.id.male);
-         database = new Database(getActivity());
+        radioButtonFamele = root.findViewById(R.id.updatefemale);
+        radioButtonMale = root.findViewById(R.id.updatemale);
+        database = new Database(getActivity());
 
         studentManage = new StudentManage();
+
+
+        Bundle bundle = getArguments();
+
+        int id = bundle.getInt("id");
+        String name = bundle.getString("name");
+        String gender = bundle.getString("gender");
+        String phone = bundle.getString("phone");
+        String email = bundle.getString("email");
+        String address = bundle.getString("address");
+
+        edtNameStd.setText(name);
+        edtPhoneStd.setText(phone);
+        edtEmailStd.setText(email);
+        edtAddressStd.setText(address);
+        if(gender.equals("Nam")){
+            radioButtonMale.setChecked(true);
+            radioButtonFamele.setChecked(false);
+        }else {
+            radioButtonMale.setChecked(false);
+            radioButtonFamele.setChecked(true);
+        }
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DialogAdd();
+                DialogUpdate(id);
             }
         });
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    AddStudent.goToFragment(getFragmentManager(),R.id.framelayout,studentManage);
+                AddStudent.goToFragment(getFragmentManager(),R.id.framelayout,studentManage);
             }
         });
         return root;
     }
-
-    private void DialogAdd() {
+    private void DialogUpdate(int id ) {
         Dialog dialog = new Dialog(getActivity());
-        dialog.setContentView(R.layout.dialogaddstudent);
+        dialog.setContentView(R.layout.dialogupdatestudent);
         dialog.setCanceledOnTouchOutside(false);
 
-        Button btnYes = dialog.findViewById(R.id.btnYesAddStudent);
-        Button btnNo = dialog.findViewById(R.id.btnNoAddStudent);
+        Button btnYes = dialog.findViewById(R.id.btnYesUpdateStudent);
+        Button btnNo = dialog.findViewById(R.id.btnNoUpdateStudent);
 
         btnYes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,16 +103,16 @@ public class AddStudent extends Fragment {
                 String address = edtAddressStd.getText().toString().trim();
                 String gender = "";
                 if(radioButtonMale.isChecked()){
-                        gender="Nam";
+                    gender="Nam";
                 }else if(radioButtonFamele.isChecked()){
-                        gender="Nữ";
+                    gender="Nu";
                 }
                 if(name.equals("")||phone.equals("")||email.equals("")||address.equals("")||gender.equals("")){
                     Toast.makeText(getActivity(),"Vui lòng nhập đủ thông tin",Toast.LENGTH_SHORT);
                 }else{
-                    Student student = createStudentInformation();
-                    database.addStudent(student);
-                    Toast.makeText(getActivity(),"thêm thông tin thành công",Toast.LENGTH_SHORT);
+                    Student student = updateStudentInformation();
+                    database.updateStudent(student,id);
+                    Toast.makeText(getActivity(),"cập nhật thông tin thành công",Toast.LENGTH_SHORT);
                     AddStudent.goToFragment(getFragmentManager(),R.id.framelayout,studentManage);
                     dialog.dismiss();
                 }
@@ -109,7 +126,7 @@ public class AddStudent extends Fragment {
         });
         dialog.show();
     }
-    private Student createStudentInformation(){
+    private Student updateStudentInformation(){
         String name = edtNameStd.getText().toString().trim();
         String phone = edtPhoneStd.getText().toString().trim();
         String email = edtEmailStd.getText().toString().trim();

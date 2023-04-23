@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,7 +57,8 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView txtStudentName,TxtStudentID;
-        public Button btnDetail;
+
+        public ImageButton btnDelete,btnDetail,btnUpdate;
         public ItemClickListener itemClickListener ;
         public int id;
         public ViewHolder(@NonNull View itemView) {
@@ -65,17 +67,25 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
             txtStudentName = itemView.findViewById(R.id.txtStudentName);
             btnDetail = itemView.findViewById(R.id.btnDetail);
             btnDetail.setOnClickListener(this);
+            btnDelete = itemView.findViewById(R.id.btnDelete);
+            btnDelete.setOnClickListener(this);
+            btnUpdate = itemView.findViewById(R.id.btnUpdate);
+            btnUpdate.setOnClickListener(this);
+
+
         }
         @Override
         public void onClick(View view) {
             if (view == btnDetail) {
                 context.information(id);
-            } else {
+            } else if (view==btnDelete){
+                context.delete(id);
+            } else if (view==btnUpdate){
+                context.update(id);
+            }else {
                 this.itemClickListener.onItemClick(view, getAdapterPosition());
             }
         }
-        public void setItemClickListener(ItemClickListener ic){
-            this.itemClickListener = ic;
-        }
+
     }
 }
