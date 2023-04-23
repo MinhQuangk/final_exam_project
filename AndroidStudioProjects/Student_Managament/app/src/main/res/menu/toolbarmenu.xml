@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    trang chủ-->
+<item
+    android:title="Trang chủ"
+    android:id="@+id/homeP"
+    android:icon="@drawable/home"/>
+
+<!--    Giảng viên-->
+    <item
+        android:title="Giảng viên"
+        android:id="@+id/teacher"
+        android:icon="@drawable/ic_teacher"/>
+
+    <item
+        android:title="Sinh viên"
+        android:id="@+id/student"
+        android:icon="@drawable/ic_baseline_person_24"/>
+
+    <item
+        android:title="Môn học"
+        android:id="@+id/subject"
+        android:icon="@drawable/ic_subject"/>
+
+    <item
+        android:title="Điểm số"
+        android:id="@+id/score"
+        android:icon="@drawable/ic_score"/>
+
+
+
+</menu>

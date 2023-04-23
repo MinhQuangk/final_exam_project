@@ -155,4 +155,18 @@
     <color name="Navy">#000080</color>
     <color name="Black">#000000</color>
 
+
+
+
+    <color name="colorPrimaryDark">#3262C4</color>
+
+    <color name="colorBlack">#000000</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+
+    <color name="colorRed">#C11515</color>
+
+    <color name="purpleDark">#FF210642</color>
+
+    <color name="yellowLight">#fff777</color>
 </resources>
