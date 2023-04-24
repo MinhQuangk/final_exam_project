@@ -1,13 +1,10 @@
 package com.example.student_managament.Adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,17 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.student_managament.Model.Student;
 import com.example.student_managament.Other.ItemClickListener;
 import com.example.student_managament.R;
-import com.example.student_managament.StudentManage;
+import com.example.student_managament.Fragment.StudentManager;
 
 import java.util.ArrayList;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHolder> {
    //Dữ liệu cần hiện thị
     private ArrayList<Student>  studentArrayList ;
-    private StudentManage context;
+    private StudentManager context;
 
 
-    public StudentAdapter(ArrayList<Student> studentArrayList, StudentManage context) {
+    public StudentAdapter(ArrayList<Student> studentArrayList, StudentManager context) {
         this.studentArrayList = studentArrayList;
         this.context = context;
     }

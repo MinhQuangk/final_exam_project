@@ -1,7 +1,6 @@
 package com.example.student_managament;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -17,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.student_managament.Fragment.StudentManager;
 import com.example.student_managament.Model.Student;
 import com.example.student_managament.Other.Database;
 
@@ -28,7 +28,7 @@ public class UpdateStudent extends Fragment {
     private EditText edtPhoneStd ;
     private EditText edtEmailStd ;
 
-    StudentManage studentManage ;
+    StudentManager studentManager;
     Database database ;
 
     RadioGroup radioGroup ;
@@ -49,7 +49,7 @@ public class UpdateStudent extends Fragment {
         radioButtonMale = root.findViewById(R.id.updatemale);
         database = new Database(getActivity());
 
-        studentManage = new StudentManage();
+        studentManager = new StudentManager();
 
 
         Bundle bundle = getArguments();
@@ -81,7 +81,7 @@ public class UpdateStudent extends Fragment {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AddStudent.goToFragment(getFragmentManager(),R.id.framelayout,studentManage);
+                AddStudent.goToFragment(getFragmentManager(),R.id.framelayout, studentManager);
             }
         });
         return root;
@@ -113,7 +113,7 @@ public class UpdateStudent extends Fragment {
                     Student student = updateStudentInformation();
                     database.updateStudent(student,id);
                     Toast.makeText(getActivity(),"cập nhật thông tin thành công",Toast.LENGTH_SHORT);
-                    AddStudent.goToFragment(getFragmentManager(),R.id.framelayout,studentManage);
+                    AddStudent.goToFragment(getFragmentManager(),R.id.framelayout, studentManager);
                     dialog.dismiss();
                 }
             }

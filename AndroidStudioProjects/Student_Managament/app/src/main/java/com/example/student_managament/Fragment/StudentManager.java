@@ -1,4 +1,4 @@
-    package com.example.student_managament;
+    package com.example.student_managament.Fragment;
 
     import androidx.fragment.app.Fragment;
     import androidx.fragment.app.FragmentManager;
@@ -7,7 +7,6 @@
     import androidx.recyclerview.widget.RecyclerView;
 
     import android.app.Dialog;
-    import android.content.Intent;
     import android.database.Cursor;
     import android.os.Bundle;
     import android.view.LayoutInflater;
@@ -17,15 +16,19 @@
     import android.widget.Toast;
 
     import com.example.student_managament.Adapter.StudentAdapter;
+    import com.example.student_managament.AddStudent;
+    import com.example.student_managament.DetailStudent;
     import com.example.student_managament.Model.Student;
     import com.example.student_managament.Other.Database;
+    import com.example.student_managament.R;
+    import com.example.student_managament.UpdateStudent;
 
     import java.util.ArrayList;
 
-    public class StudentManage extends Fragment {
+    public class StudentManager extends Fragment {
 
         private RecyclerView rcvStudenList;
-        StudentManage studentManage;
+        StudentManager studentManager;
         private StudentAdapter studentAdapter;
         private Database database;
         private Button btnChange;
@@ -67,7 +70,7 @@
 
 
             rcvStudenList.setHasFixedSize(true);
-            studentAdapter = new StudentAdapter(alStudent, StudentManage.this);
+            studentAdapter = new StudentAdapter(alStudent, StudentManager.this);
 
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
             rcvStudenList.setLayoutManager(linearLayoutManager);
@@ -81,7 +84,7 @@
 
                 @Override
                 public void onClick(View view) {
-                    StudentManage.goToFragment(getFragmentManager(), R.id.framelayout, addStudent);
+                    StudentManager.goToFragment(getFragmentManager(), R.id.framelayout, addStudent);
                 }
             });
 
@@ -116,7 +119,7 @@
                     args.putString("address", address);
 
                     detailStudent.setArguments(args);
-                    StudentManage.goToFragment(getFragmentManager(), R.id.framelayout, detailStudent);
+                    StudentManager.goToFragment(getFragmentManager(), R.id.framelayout, detailStudent);
                 }
             }
         }
@@ -125,7 +128,7 @@
             Dialog dialog = new Dialog(getContext());
             dialog.setContentView(R.layout.dialogdeletestudent);
             dialog.setCanceledOnTouchOutside(false);
-            studentManage = new StudentManage();
+            studentManager = new StudentManager();
             Button btnYes = dialog.findViewById(R.id.btnYesDeleteStudent);
             Button btnNo = dialog.findViewById(R.id.btnNoDeleteStudent);
             btnYes.setOnClickListener(new View.OnClickListener() {
@@ -166,7 +169,7 @@
                     args.putString("address", address);
 
                     updateStudent.setArguments(args);
-                    StudentManage.goToFragment(getFragmentManager(), R.id.framelayout,updateStudent );
+                    StudentManager.goToFragment(getFragmentManager(), R.id.framelayout,updateStudent );
                 }
             }
         }

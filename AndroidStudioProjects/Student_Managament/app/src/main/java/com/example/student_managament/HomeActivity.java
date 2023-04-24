@@ -1,19 +1,23 @@
 package com.example.student_managament;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import  androidx.fragment.app.FragmentActivity;
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.student_managament.Model.Subject;
+import com.example.student_managament.Fragment.ClassManager;
+import com.example.student_managament.Fragment.NoticeManager;
+import com.example.student_managament.Fragment.ScoreManager;
+import com.example.student_managament.Fragment.StudentManager;
+import com.example.student_managament.Fragment.SubjectManage;
+import com.example.student_managament.Fragment.TeacherManager;
+import com.example.student_managament.Model.Score;
 
 public class HomeActivity extends Fragment implements View.OnClickListener {
     CardView StudentManage;
@@ -22,15 +26,24 @@ public class HomeActivity extends Fragment implements View.OnClickListener {
     CardView NoticeManage;
     CardView MarkManage;
 
-
-    StudentManage student;
-    SubjectActivity subject;
+    CardView TeacherManage;
+    StudentManager student;
+    TeacherManager teacher ;
+    SubjectManage subject;
+    NoticeManager notice ;
+    ScoreManager score ;
+    ClassManager Class ;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.activity_home, container, false);
-        student = new StudentManage();
-        subject = new SubjectActivity();
+        student = new StudentManager();
+        subject = new SubjectManage();
+        teacher = new TeacherManager();
+        notice = new NoticeManager();
+        score = new ScoreManager();
+        Class = new ClassManager();
+
         StudentManage = root.findViewById(R.id.Student);
         StudentManage.setOnClickListener(this);
 
@@ -45,6 +58,10 @@ public class HomeActivity extends Fragment implements View.OnClickListener {
 
         MarkManage = root.findViewById(R.id.Score);
         MarkManage.setOnClickListener(this);
+
+        TeacherManage = root.findViewById(R.id.Teacher);
+        TeacherManage.setOnClickListener(this);
+
         return root;
     }
 
@@ -56,16 +73,19 @@ public class HomeActivity extends Fragment implements View.OnClickListener {
                 goToFragment(getFragmentManager(),R.id.framelayout,student);
                 break;
             case R.id.Class:
-
+                goToFragment(getFragmentManager(),R.id.framelayout,Class);
                 break;
             case R.id.Subject:
                 goToFragment(getFragmentManager(),R.id.framelayout,subject);
                 break;
             case R.id.Notice:
+                goToFragment(getFragmentManager(),R.id.framelayout,notice);
                 break;
             case R.id.Score:
+                goToFragment(getFragmentManager(),R.id.framelayout,score);
                 break;
-            case R.id.logOut:
+            case R.id.Teacher:
+                goToFragment(getFragmentManager(),R.id.framelayout,teacher);
                 break;
         }
     }

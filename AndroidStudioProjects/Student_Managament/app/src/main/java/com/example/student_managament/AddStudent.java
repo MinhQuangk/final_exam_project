@@ -17,6 +17,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.student_managament.Fragment.StudentManager;
 import com.example.student_managament.Model.Student;
 import com.example.student_managament.Other.Database;
 
@@ -30,7 +31,7 @@ public class AddStudent extends Fragment {
     private EditText edtPhoneStd ;
     private EditText edtEmailStd ;
 
-    StudentManage studentManage ;
+    StudentManager studentManager;
     Database database ;
 
     RadioGroup radioGroup ;
@@ -53,7 +54,7 @@ public class AddStudent extends Fragment {
         radioButtonMale = root.findViewById(R.id.male);
          database = new Database(getActivity());
 
-        studentManage = new StudentManage();
+        studentManager = new StudentManager();
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,7 +64,7 @@ public class AddStudent extends Fragment {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    AddStudent.goToFragment(getFragmentManager(),R.id.framelayout,studentManage);
+                    AddStudent.goToFragment(getFragmentManager(),R.id.framelayout, studentManager);
             }
         });
         return root;
@@ -96,7 +97,7 @@ public class AddStudent extends Fragment {
                     Student student = createStudentInformation();
                     database.addStudent(student);
                     Toast.makeText(getActivity(),"thêm thông tin thành công",Toast.LENGTH_SHORT);
-                    AddStudent.goToFragment(getFragmentManager(),R.id.framelayout,studentManage);
+                    AddStudent.goToFragment(getFragmentManager(),R.id.framelayout, studentManager);
                     dialog.dismiss();
                 }
             }

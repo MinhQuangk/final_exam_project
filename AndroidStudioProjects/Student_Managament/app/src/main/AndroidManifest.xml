@@ -12,10 +12,19 @@
         android:theme="@style/Theme.Student_Managament"
         tools:targetApi="31">
         <activity
+            android:name=".ClassManager"
+            android:exported="false" />
+        <activity
+            android:name=".ScoreManager"
+            android:exported="false" />
+        <activity
+            android:name=".NoticeManager"
+            android:exported="false" />
+        <activity
             android:name=".UpdateStudent"
             android:exported="false" />
         <activity
-            android:name=".SubjectActivity"
+            android:name=".Fragment.SubjectManage"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
@@ -28,15 +37,6 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AddStudent"
-            android:exported="false" />
-        <activity
-            android:name=".StudentManage"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,6 +44,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AddStudent"
+            android:exported="false" />
+        <activity
+            android:name=".Fragment.StudentManager"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

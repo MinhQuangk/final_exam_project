@@ -12,6 +12,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 
+import com.example.student_managament.Fragment.ClassManager;
+import com.example.student_managament.Fragment.NoticeManager;
+import com.example.student_managament.Fragment.ScoreManager;
+import com.example.student_managament.Fragment.StudentManager;
+import com.example.student_managament.Fragment.SubjectManage;
+import com.example.student_managament.Fragment.TeacherManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -20,10 +26,12 @@ public class MainActivity extends AppCompatActivity  {
     Toolbar toolbar;
     BottomNavigationView bottomNavigationView;
     HomeActivity home;
-//    TeacherActivity teacher;
-    StudentManage student;
-//    ScoreActivity score;
-    SubjectActivity subject;
+    StudentManager student;
+    SubjectManage subject;
+    TeacherManager teacher;
+    NoticeManager notice ;
+    ClassManager Class ;
+    ScoreManager Score ;
     NavigationView nav;
     ActionBarDrawerToggle toggle;
     DrawerLayout drawerLayout;
@@ -31,10 +39,15 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         home = new HomeActivity();
-//        teacher = new TeacherActivity();
-        student = new StudentManage();
-//        score = new ScoreActivity();
-        subject = new SubjectActivity();
+
+        student = new StudentManager();
+        subject = new SubjectManage();
+        teacher = new TeacherManager();
+        Class = new ClassManager();
+        notice =new NoticeManager();
+        Score = new ScoreManager();
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = findViewById((R.id.toolbar));
@@ -52,13 +65,13 @@ public class MainActivity extends AppCompatActivity  {
                 if (item.getItemId() == R.id.homeP) {
                     setFragment(home);
                 } else if (item.getItemId() == R.id.teacher) {
-//                    setFragment(teacher);
+                    setFragment(teacher);
                 } else if (item.getItemId() == R.id.student) {
                     setFragment(student);
                 } else if (item.getItemId() == R.id.subject) {
                     setFragment(subject);
                 } else if (item.getItemId() == R.id.score) {
-//                    setFragment(score);
+                    setFragment(Score);
                 }else {
                     return false;
                 }
@@ -71,13 +84,13 @@ public class MainActivity extends AppCompatActivity  {
                 if (item.getItemId() == R.id.homeP) {
                     setFragment(home);
                 } else if (item.getItemId() == R.id.teacher) {
-//                    setFragment(teacher);
+                    setFragment(teacher);
                 } else if (item.getItemId() == R.id.student) {
                     setFragment(student);
                 } else if (item.getItemId() == R.id.subject) {
                     setFragment(subject);
                 } else if (item.getItemId() == R.id.score) {
-//                    setFragment(score);
+                    setFragment(Score);
                 }else {
                     return false;
                 }

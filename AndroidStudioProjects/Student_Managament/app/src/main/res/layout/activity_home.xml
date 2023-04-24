@@ -46,6 +46,7 @@
                         android:layout_height="wrap_content"
                         android:text="Quản lý sinh viên"
                         android:textStyle="bold"
+                        android:gravity="center"
                         android:padding="5dp"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/TextColor"
@@ -83,6 +84,7 @@
                         android:layout_height="wrap_content"
                         android:text="Quản lý lớp học"
                         android:textStyle="bold"
+                        android:gravity="center"
                         android:padding="5dp"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/TextColor"
@@ -130,6 +132,7 @@
                         android:layout_height="wrap_content"
                         android:text="Quản lý môn học"
                         android:textStyle="bold"
+                        android:gravity="center"
                         android:padding="5dp"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/TextColor"
@@ -165,6 +168,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
 
                         android:text="Thông báo"
                         android:textStyle="bold"
@@ -215,6 +219,7 @@
                         android:layout_height="wrap_content"
                         android:text="Quản lý điểm"
                         android:textStyle="bold"
+                        android:gravity="center"
                         android:padding="5dp"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/TextColor"
@@ -227,7 +232,7 @@
                 android:layout_height="150dp"
                 android:layout_width="130dp"
                 android:layout_margin="10dp"
-                android:id="@+id/logOut"
+                android:id="@+id/Teacher"
                 app:cardElevation="5dp">
 
                 <LinearLayout
@@ -240,7 +245,7 @@
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:background="@color/Red"
-                        android:src="@drawable/ic_logout"
+                        android:src="@drawable/ic_person"
                         android:padding="15dp"/>
                     <View
                         android:layout_width="match_parent"
@@ -251,7 +256,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Đăng Xuất"
+                        android:text="Giảng viên"
+                        android:gravity="center"
                         android:textStyle="bold"
                         android:padding="5dp"
                         android:layout_marginTop="10dp"
