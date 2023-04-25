@@ -12,6 +12,15 @@
         android:theme="@style/Theme.Student_Managament"
         tools:targetApi="31">
         <activity
+            android:name=".UpdateSubject"
+            android:exported="false" />
+        <activity
+            android:name=".DetailSubject"
+            android:exported="false" />
+        <activity
+            android:name=".AddSubject"
+            android:exported="false" />
+        <activity
             android:name=".ClassManager"
             android:exported="false" />
         <activity
