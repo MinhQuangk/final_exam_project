@@ -18,11 +18,13 @@ import android.widget.Toast;
 import com.example.student_managament.Fragment.StudentManager;
 import com.example.student_managament.Fragment.SubjectManage;
 import com.example.student_managament.Model.Student;
+import com.example.student_managament.Model.Subject;
 import com.example.student_managament.Other.Database;
 
 public class AddSubject extends Fragment {
     private Button btnBack;
     private Button btnAdd ;
+
     private EditText edtIdSjb,edtNameSjb,edtCreditSjb,edtSemesterSjb,edtDepartmentSjb;
 
     SubjectManage subjectManager;
@@ -36,6 +38,7 @@ public class AddSubject extends Fragment {
         edtCreditSjb=root.findViewById(R.id.AddCredit);
         edtSemesterSjb=root.findViewById(R.id.AddSemester);
         edtDepartmentSjb=root.findViewById(R.id.AddDepartment);
+        subjectManager = new SubjectManage();
 
         database = new Database(getActivity());
         btnBack = root.findViewById(R.id.buttonBackAdd);
@@ -49,7 +52,7 @@ public class AddSubject extends Fragment {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AddStudent.goToFragment(getFragmentManager(),R.id.framelayout, subjectManager);
+                AddSubject.goToFragment(getFragmentManager(),R.id.framelayout, subjectManager);
             }
         });
 
@@ -58,32 +61,27 @@ public class AddSubject extends Fragment {
     }
     private void DialogAdd() {
         Dialog dialog = new Dialog(getActivity());
-        dialog.setContentView(R.layout.dialogaddstudent);
+        dialog.setContentView(R.layout.diaglogaddsubject);
         dialog.setCanceledOnTouchOutside(false);
 
-        Button btnYes = dialog.findViewById(R.id.btnYesAddStudent);
-        Button btnNo = dialog.findViewById(R.id.btnNoAddStudent);
+        Button btnYes = dialog.findViewById(R.id.btnYesAddSubject);
+        Button btnNo = dialog.findViewById(R.id.btnNoAddSubject);
 
         btnYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = edtNameStd.getText().toString().trim();
-                String phone = edtPhoneStd.getText().toString().trim();
-                String email = edtEmailStd.getText().toString().trim();
-                String address = edtAddressStd.getText().toString().trim();
-                String gender = "";
-                if(radioButtonMale.isChecked()){
-                    gender="Nam";
-                }else if(radioButtonFamele.isChecked()){
-                    gender="Nữ";
-                }
-                if(name.equals("")||phone.equals("")||email.equals("")||address.equals("")||gender.equals("")){
+                String id = edtIdSjb.getText().toString().trim();
+                String name = edtNameSjb.getText().toString().trim();
+                int credit = Integer.parseInt(edtCreditSjb.getText().toString().trim());
+                String semester = edtSemesterSjb.getText().toString().trim();
+                String department = edtDepartmentSjb.getText().toString().trim();
+                if(id.equals("")||name.equals("")||semester.equals("")||department.equals("")){
                     Toast.makeText(getActivity(),"Vui lòng nhập đủ thông tin",Toast.LENGTH_SHORT);
                 }else{
-                    Student student = createStudentInformation();
-                    database.addStudent(student);
+                    Subject subject = createSubjectInformation();
+                    database.addSubject(subject);
                     Toast.makeText(getActivity(),"thêm thông tin thành công",Toast.LENGTH_SHORT);
-                    AddStudent.goToFragment(getFragmentManager(),R.id.framelayout, studentManager);
+                    AddSubject.goToFragment(getFragmentManager(),R.id.framelayout, subjectManager);
                     dialog.dismiss();
                 }
             }
@@ -96,19 +94,14 @@ public class AddSubject extends Fragment {
         });
         dialog.show();
     }
-    private Student createStudentInformation(){
-        String name = edtNameStd.getText().toString().trim();
-        String phone = edtPhoneStd.getText().toString().trim();
-        String email = edtEmailStd.getText().toString().trim();
-        String address = edtAddressStd.getText().toString().trim();
-        String gender = "";
-        if(radioButtonMale.isChecked()){
-            gender="Nam";
-        }else if(radioButtonFamele.isChecked()){
-            gender="Nữ";
-        }
-        Student student = new Student(name,gender,phone,email,address);
-        return student;
+    private Subject createSubjectInformation(){
+        String id = edtIdSjb.getText().toString().trim();
+        String name = edtNameSjb.getText().toString().trim();
+        int credit = Integer.parseInt(edtCreditSjb.getText().toString().trim());
+        String semester = edtSemesterSjb.getText().toString().trim();
+        String department = edtDepartmentSjb.getText().toString().trim();
+        Subject subject = new Subject(id,name,credit,semester,department);
+        return subject;
     }
     public static void goToFragment(FragmentManager fragmentManager, int containerViewId, Fragment fragment) {
 

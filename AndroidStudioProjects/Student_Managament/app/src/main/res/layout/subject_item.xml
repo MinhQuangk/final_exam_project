@@ -75,7 +75,7 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/btnUpdate"
+            android:id="@+id/btnUpdateSubject"
             android:layout_width="wrap_content"
             android:layout_height="61dp"
             android:paddingLeft="16dp"
@@ -93,7 +93,7 @@
             android:src="@drawable/baseline_delete_24" />
 
         <ImageButton
-            android:id="@+id/btnDetail"
+            android:id="@+id/btnDetailSubject"
             android:layout_width="wrap_content"
             android:layout_height="61dp"
             android:paddingLeft="16dp"

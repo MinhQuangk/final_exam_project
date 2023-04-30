@@ -12,6 +12,15 @@
         android:theme="@style/Theme.Student_Managament"
         tools:targetApi="31">
         <activity
+            android:name=".UpdateTeacher"
+            android:exported="false" />
+        <activity
+            android:name=".DetailTeacher"
+            android:exported="false" />
+        <activity
+            android:name=".AddTeacher"
+            android:exported="false" />
+        <activity
             android:name=".UpdateSubject"
             android:exported="false" />
         <activity
@@ -21,13 +30,13 @@
             android:name=".AddSubject"
             android:exported="false" />
         <activity
-            android:name=".ClassManager"
+            android:name=".Fragment.ClassManager"
             android:exported="false" />
         <activity
-            android:name=".ScoreManager"
+            android:name=".Fragment.ScoreManager"
             android:exported="false" />
         <activity
-            android:name=".NoticeManager"
+            android:name=".Fragment.NoticeManager"
             android:exported="false" />
         <activity
             android:name=".UpdateStudent"
@@ -36,7 +45,7 @@
             android:name=".Fragment.SubjectManage"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".Fragment.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".DetailStudent"
@@ -45,14 +54,8 @@
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".Adapter.LoginActivity"
+            android:exported="false" />
         <activity
             android:name=".AddStudent"
             android:exported="false" />
@@ -60,8 +63,14 @@
             android:name=".Fragment.StudentManager"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true" />
+            android:name=".Fragment.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

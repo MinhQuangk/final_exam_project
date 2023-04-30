@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.student_managament.Adapter.LoginActivity;
 import com.example.student_managament.Other.LgRgDatabase;
 
 public class RegisterActivity extends AppCompatActivity {

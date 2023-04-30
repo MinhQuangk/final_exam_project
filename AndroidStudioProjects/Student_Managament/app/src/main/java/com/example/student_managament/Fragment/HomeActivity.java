@@ -1,4 +1,4 @@
-package com.example.student_managament;
+package com.example.student_managament.Fragment;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -18,6 +18,7 @@ import com.example.student_managament.Fragment.StudentManager;
 import com.example.student_managament.Fragment.SubjectManage;
 import com.example.student_managament.Fragment.TeacherManager;
 import com.example.student_managament.Model.Score;
+import com.example.student_managament.R;
 
 public class HomeActivity extends Fragment implements View.OnClickListener {
     CardView StudentManage;

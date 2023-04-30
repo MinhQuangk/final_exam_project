@@ -1,4 +1,4 @@
-package com.example.student_managament;
+package com.example.student_managament.Adapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,7 +12,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.student_managament.Fragment.MainActivity;
 import com.example.student_managament.Other.LgRgDatabase;
+import com.example.student_managament.R;
+import com.example.student_managament.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
 

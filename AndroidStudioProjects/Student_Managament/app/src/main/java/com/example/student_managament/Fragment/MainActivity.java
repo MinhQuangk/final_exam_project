@@ -1,4 +1,4 @@
-package com.example.student_managament;
+package com.example.student_managament.Fragment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -13,11 +13,13 @@ import android.view.MenuItem;
 
 
 import com.example.student_managament.Fragment.ClassManager;
+import com.example.student_managament.Fragment.HomeActivity;
 import com.example.student_managament.Fragment.NoticeManager;
 import com.example.student_managament.Fragment.ScoreManager;
 import com.example.student_managament.Fragment.StudentManager;
 import com.example.student_managament.Fragment.SubjectManage;
 import com.example.student_managament.Fragment.TeacherManager;
+import com.example.student_managament.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
