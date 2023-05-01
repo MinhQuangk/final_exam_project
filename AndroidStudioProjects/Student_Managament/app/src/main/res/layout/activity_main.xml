@@ -10,12 +10,12 @@
 
     tools:openDrawer="start"
 
-    tools:context=".Fragment.MainActivity">
+    tools:context=".MainActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/back2"
-        tools:context=".Fragment.MainActivity">
+        tools:context=".MainActivity">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"

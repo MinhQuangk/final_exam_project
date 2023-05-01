@@ -1,4 +1,4 @@
-package com.example.student_managament.Fragment;
+package com.example.student_managament;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -12,14 +12,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 
-import com.example.student_managament.Fragment.ClassManager;
+import com.example.student_managament.Fragment.ClassesManager;
 import com.example.student_managament.Fragment.HomeActivity;
 import com.example.student_managament.Fragment.NoticeManager;
 import com.example.student_managament.Fragment.ScoreManager;
 import com.example.student_managament.Fragment.StudentManager;
 import com.example.student_managament.Fragment.SubjectManage;
 import com.example.student_managament.Fragment.TeacherManager;
-import com.example.student_managament.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity  {
     SubjectManage subject;
     TeacherManager teacher;
     NoticeManager notice ;
-    ClassManager Class ;
+    ClassesManager Class ;
     ScoreManager Score ;
     NavigationView nav;
     ActionBarDrawerToggle toggle;
@@ -45,7 +44,7 @@ public class MainActivity extends AppCompatActivity  {
         student = new StudentManager();
         subject = new SubjectManage();
         teacher = new TeacherManager();
-        Class = new ClassManager();
+        Class = new ClassesManager();
         notice =new NoticeManager();
         Score = new ScoreManager();
 

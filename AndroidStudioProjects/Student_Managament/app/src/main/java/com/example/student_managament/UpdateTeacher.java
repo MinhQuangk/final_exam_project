@@ -98,8 +98,8 @@ public class UpdateTeacher extends Fragment {
         dialog.setContentView(R.layout.dialog_update_infor);
         dialog.setCanceledOnTouchOutside(false);
 
-        Button btnYes = dialog.findViewById(R.id.btnYesUpdateStudent);
-        Button btnNo = dialog.findViewById(R.id.btnNoUpdateStudent);
+        Button btnYes = dialog.findViewById(R.id.btnYesUpdate);
+        Button btnNo = dialog.findViewById(R.id.btnNoUpdate);
 
         btnYes.setOnClickListener(new View.OnClickListener() {
             @Override

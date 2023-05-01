@@ -12,10 +12,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.student_managament.Fragment.MainActivity;
+import com.example.student_managament.MainActivity;
 import com.example.student_managament.Other.LgRgDatabase;
 import com.example.student_managament.R;
-import com.example.student_managament.RegisterActivity;
+import com.example.student_managament.Fragment.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
 

@@ -11,13 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.student_managament.Fragment.ClassManager;
-import com.example.student_managament.Fragment.NoticeManager;
-import com.example.student_managament.Fragment.ScoreManager;
-import com.example.student_managament.Fragment.StudentManager;
-import com.example.student_managament.Fragment.SubjectManage;
-import com.example.student_managament.Fragment.TeacherManager;
-import com.example.student_managament.Model.Score;
 import com.example.student_managament.R;
 
 public class HomeActivity extends Fragment implements View.OnClickListener {
@@ -33,7 +26,7 @@ public class HomeActivity extends Fragment implements View.OnClickListener {
     SubjectManage subject;
     NoticeManager notice ;
     ScoreManager score ;
-    ClassManager Class ;
+    ClassesManager Class ;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -43,7 +36,7 @@ public class HomeActivity extends Fragment implements View.OnClickListener {
         teacher = new TeacherManager();
         notice = new NoticeManager();
         score = new ScoreManager();
-        Class = new ClassManager();
+        Class = new ClassesManager();
 
         StudentManage = root.findViewById(R.id.Student);
         StudentManage.setOnClickListener(this);

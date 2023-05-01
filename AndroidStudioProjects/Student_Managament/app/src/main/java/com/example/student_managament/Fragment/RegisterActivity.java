@@ -1,4 +1,4 @@
-package com.example.student_managament;
+package com.example.student_managament.Fragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.student_managament.Adapter.LoginActivity;
 import com.example.student_managament.Other.LgRgDatabase;
+import com.example.student_managament.R;
 
 public class RegisterActivity extends AppCompatActivity {
 

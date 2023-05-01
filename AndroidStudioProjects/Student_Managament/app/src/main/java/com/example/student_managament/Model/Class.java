@@ -4,17 +4,19 @@ public class Class {
     private String id ;
     private String name ;
     private int quantiy;
+    private String session;
 
     private int teacher_id;
 
     public Class() {
     }
 
-    public Class(String id, String name, int quantiy,int teacher_id) {
+    public Class(String id, String name, int quantiy, String session, int teacher_id) {
         this.id = id;
         this.name = name;
         this.quantiy = quantiy;
-        this.teacher_id =teacher_id;
+        this.session = session;
+        this.teacher_id = teacher_id;
     }
 
     public String getId() {
@@ -47,5 +49,13 @@ public class Class {
 
     public void setTeacher_id(int teacher_id) {
         this.teacher_id = teacher_id;
+    }
+
+    public String getSession() {
+        return session;
+    }
+
+    public void setSession(String session) {
+        this.session = session;
     }
 }

@@ -18,13 +18,13 @@ public class Database extends SQLiteOpenHelper {
     private static final int VERSION = 1;
     //Bảng Sinh viên
 
-    private static String TABLE_STUDENT="Students";
-    private static String ID_STUDENT ="StudentID";
-    private static String STUDENT_NAME="studentName";
-    private static String GENDER = "gender";
-    private static String STUDENT_PHONE="studentPhone";
-    private static String STUDENT_EMAIL= "studentEmail";
-    private static String STUDENT_ADDRESS="studentAddress";
+    private static final String TABLE_STUDENT="Students";
+    private static final String ID_STUDENT ="StudentID";
+    private static final String STUDENT_NAME="studentName";
+    private static final String GENDER = "gender";
+    private static final String STUDENT_PHONE="studentPhone";
+    private static final String STUDENT_EMAIL= "studentEmail";
+    private static final String STUDENT_ADDRESS="studentAddress";
     private static final String SQLQueryStudent = "CREATE TABLE " + TABLE_STUDENT + "("
             + ID_STUDENT + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + STUDENT_NAME + " NVARCHAR(50),"
@@ -34,12 +34,12 @@ public class Database extends SQLiteOpenHelper {
             + STUDENT_ADDRESS + " NVARCHAR(50))";
 
     //Tạo Bảng Môn Học
-    private static String TABLE_SUBJECT = "Subjects" ;
-    private static String ID_SUBJECT ="subjectID";
-    private static String SUBJECT_NAME ="subjectName";
-    private static String CREDIT = "credit";
-    private static String SEMESTER = "semester";
-    private static String DEPARTMENT = "department";
+    private static final String TABLE_SUBJECT = "Subjects" ;
+    private static final String ID_SUBJECT ="subjectID";
+    private static final String SUBJECT_NAME ="subjectName";
+    private static final String CREDIT = "credit";
+    private static final String SEMESTER = "semester";
+    private static final String DEPARTMENT = "department";
 
     private static final String SQLQuerySubject = "CREATE TABLE " + TABLE_SUBJECT + "("
             + ID_SUBJECT + " TEXT PRIMARY KEY,"
@@ -48,33 +48,35 @@ public class Database extends SQLiteOpenHelper {
             + SEMESTER + " TEXT,"
             + DEPARTMENT + " TEXT)";
     // tạo bảng giáo viên
-    private static String TEACHER_TABLE = "teachers";
-    private static String TEACHER_ID = "teacherId";
-    private static String TEACHER_NAME = "teacherName";
-    private static String TEACHER_BIRTHDAY = "teacherBirthday";
-    private static String TEACHER_ACADEMIC ="teacherAcademic";
-    private static String TEACHER_GENDER = "teacherGender";
-    private static String TEACHER_EMAIL = "teacherEmail";
-    private static String TEACHER_ADDRESSS= "teacherAddress";
-    private static String SQLQueryTeacher =  "CREATE TABLE " + TEACHER_TABLE + "("
+    private static final String TEACHER_TABLE = "teachers";
+    private static final String TEACHER_ID = "teacherId";
+    private static final String TEACHER_NAME = "teacherName";
+    private static final String TEACHER_BIRTHDAY = "teacherBirthday";
+    private static final String TEACHER_ACADEMIC ="teacherAcademic";
+    private static final String TEACHER_GENDER = "teacherGender";
+    private static final String TEACHER_EMAIL = "teacherEmail";
+    private static final String TEACHER_ADDRESSS= "teacherAddress";
+    private static final String SQLQueryTeacher =  "CREATE TABLE " + TEACHER_TABLE + "("
             + TEACHER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + TEACHER_NAME + " NVARCHAR(50),"
             + TEACHER_BIRTHDAY + " TEXT,"
             + TEACHER_GENDER + " NVARCHAR(10),"
-            +TEACHER_ACADEMIC+"TEXT,"
+            +TEACHER_ACADEMIC+"  TEXT,"
             + TEACHER_EMAIL + " TEXT,"
             + TEACHER_ADDRESSS + " NVARCHAR(50))";
     // tạo bảng Lớp
-    private static String CLASS_TABLES="Classes";
-    private static String CLASS_ID = "classID";
-    private static String CLASS_NAME ="className";
-    private static String QUANTITY = "quantity";
+    private static final String CLASS_TABLES="Classes";
+    private static final String CLASS_ID = "classID";
+    private static final String CLASS_NAME ="className";
+    private static final String QUANTITY = "quantity";
 
-    private static String ID_TEACHER = "IDteacher";
+    private static final String SESSION = "session ";
+    private static final String ID_TEACHER = "IDteacher";
 
     private static final String SQLQueryClass = "CREATE TABLE " + CLASS_TABLES + "("
             + CLASS_ID + " TEXT PRIMARY KEY,"
             + CLASS_NAME + " NVARCHAR(50),"
+            + SESSION + " TEXT,"
             + QUANTITY + " INTEGER,"
             + ID_TEACHER + " INTEGER, FOREIGN KEY ("+ID_TEACHER+") REFERENCES "+TEACHER_TABLE+"("+TEACHER_ID+"))";
 
@@ -215,7 +217,7 @@ public class Database extends SQLiteOpenHelper {
         values.put(TEACHER_EMAIL,teacher.getEmail());
         values.put(TEACHER_ADDRESSS,teacher.getAddress());
 
-        db.update(TEACHER_TABLE,values,ID_SUBJECT+"="+id,null);
+        db.update(TEACHER_TABLE,values,TEACHER_ID+"="+id,null);
         return true ;
     }
     // xóa thông tin giảng viên
@@ -241,7 +243,8 @@ public void addClass(Class aclass){
     values.put(CLASS_ID,aclass.getId());
     values.put(CLASS_NAME,aclass.getName());
     values.put(QUANTITY,aclass.getQuantiy());
-    values.put(TEACHER_ID,aclass.getTeacher_id());
+    values.put(SESSION,aclass.getSession());
+    values.put(ID_TEACHER,aclass.getTeacher_id());
 
     db.insert(CLASS_TABLES,null,values);
     db.close();

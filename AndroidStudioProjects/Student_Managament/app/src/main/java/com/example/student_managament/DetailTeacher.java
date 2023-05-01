@@ -16,14 +16,12 @@ public class DetailTeacher extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.activity_detail_teacher, container, false);
 
-
         edtName= root.findViewById(R.id.tvNameTeacher);
         edtGender = root.findViewById(R.id.tvGender);
         edtAcademic = root.findViewById(R.id.tvAcademic);
         edtEmail = root.findViewById(R.id.tvEmail);
         edtAddress = root.findViewById(R.id.tvAddress);
         edtBirthday = root.findViewById(R.id.tvBirthday);
-
 
         //lấy dữ liệu
         Bundle bundle = getArguments();
