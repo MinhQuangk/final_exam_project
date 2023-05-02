@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import com.example.student_managament.Fragment.ClassesManager;
 import com.example.student_managament.Fragment.HomeActivity;
 import com.example.student_managament.Fragment.NoticeManager;
+import com.example.student_managament.Fragment.ScoreManageListSubject;
 import com.example.student_managament.Fragment.ScoreManager;
 import com.example.student_managament.Fragment.StudentManager;
 import com.example.student_managament.Fragment.SubjectManage;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity  {
     TeacherManager teacher;
     NoticeManager notice ;
     ClassesManager Class ;
-    ScoreManager Score ;
+    ScoreManageListSubject Score ;
     NavigationView nav;
     ActionBarDrawerToggle toggle;
     DrawerLayout drawerLayout;
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity  {
         teacher = new TeacherManager();
         Class = new ClassesManager();
         notice =new NoticeManager();
-        Score = new ScoreManager();
+        Score = new ScoreManageListSubject();
 
 
         super.onCreate(savedInstanceState);

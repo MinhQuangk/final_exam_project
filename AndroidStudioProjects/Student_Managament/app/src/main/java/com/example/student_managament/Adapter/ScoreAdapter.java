@@ -56,7 +56,7 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView txtStudentName,txtExerciseScore,txtMiddleScore,txtFinalScore ;
-        public ImageButton btnDelete,btnUpdate;
+        public ImageButton btnDelete,btnUpdate,btnAdd;
         public int id;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -64,6 +64,8 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder> 
             txtExerciseScore= itemView.findViewById(R.id.ExeciseScore);
             txtMiddleScore=itemView.findViewById(R.id.middleTestScore);
             txtFinalScore=itemView.findViewById(R.id.FinalExamScore);
+            btnAdd = itemView.findViewById(R.id.btnAdd);
+            btnAdd.setOnClickListener(this);
             btnDelete = itemView.findViewById(R.id.btnDelete);
             btnDelete.setOnClickListener(this);
             btnUpdate = itemView.findViewById(R.id.btnUpdate);
@@ -72,8 +74,9 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder> 
 
         @Override
         public void onClick(View view) {
+            if(view==btnAdd){
 
-             if (view==btnDelete){
+            }else if (view==btnDelete){
 //                context.delete(id);
             } else if (view==btnUpdate){
 //                context.update(id);

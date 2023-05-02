@@ -337,4 +337,12 @@ public void addClass(Class aclass){
 
         return cursor;
     }
+    public Cursor getDataScoreOfStuden(String idSbj,int idStd){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT subjectId,studenId,scoreId,score FROM "+SCORE_TABLE
+                +" INNER JOIN " + TABLE_SUBJECT + " ON " + TABLE_SUBJECT + "." + ID_SUBJECT + " = " + SCORE_TABLE + "." + SUBJECT_ID
+                +" INNER JOIN " + TABLE_STUDENT + " ON " + TABLE_STUDENT + "." + ID_STUDENT + " = " + SCORE_TABLE + "." + STUDENT_ID
+                +"WHERE "+TABLE_SUBJECT+"."+ID_SUBJECT+"="+'"'+idSbj+'"'+"AND"+TABLE_STUDENT+"."+ID_STUDENT+"="+idStd, null);
+        return cursor;
+    }
 }
