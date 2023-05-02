@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.example.student_managament.Model.Class;
+import com.example.student_managament.Model.Score;
 import com.example.student_managament.Model.Student;
 import com.example.student_managament.Model.Subject;
 import com.example.student_managament.Model.Teacher;
@@ -69,8 +70,7 @@ public class Database extends SQLiteOpenHelper {
     private static final String CLASS_ID = "classID";
     private static final String CLASS_NAME ="className";
     private static final String QUANTITY = "quantity";
-
-    private static final String SESSION = "session ";
+    private static final String SESSION = "session";
     private static final String ID_TEACHER = "IDteacher";
 
     private static final String SQLQueryClass = "CREATE TABLE " + CLASS_TABLES + "("
@@ -83,7 +83,22 @@ public class Database extends SQLiteOpenHelper {
     public Database(@Nullable Context context) {
         super(context, DATABASE_NAME, null, VERSION);
     }
+    // tạo bảng điểm sinh viên
+    private static final String SCORE_TABLE = "Score";
+    private static final String SCORE_ID = "scoreId";
+    private static final String TYPE = "type";
+    private static final String SCORE="score";
+    private static final String STUDENT_ID = "studenId";
+    private static final String SUBJECT_ID = "subjectId";
 
+    private static final String SQLQueryScore = "CREATE TABLE " + SCORE_TABLE + "("
+            + SCORE_ID + " TEXT PRIMARY KEY,"
+            + TYPE + " NVARCHAR(50),"
+            + SCORE + " DOUBLE,"
+            + STUDENT_ID + " INTEGER ,"
+            + SUBJECT_ID + " TEXT ,"
+            +"FOREIGN KEY ("+SUBJECT_ID+") REFERENCES "+TABLE_SUBJECT+"("+ID_SUBJECT+"),"
+            +"FOREIGN KEY ("+STUDENT_ID+") REFERENCES "+TABLE_STUDENT+"("+ID_STUDENT+"))";
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
@@ -91,6 +106,7 @@ public class Database extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(SQLQuerySubject);
         sqLiteDatabase.execSQL(SQLQueryTeacher);
         sqLiteDatabase.execSQL(SQLQueryClass);
+        sqLiteDatabase.execSQL(SQLQueryScore);
         sqLiteDatabase.execSQL("PRAGMA encoding = \"UTF-8\"");
     }
 
@@ -260,6 +276,7 @@ public void addClass(Class aclass){
         values.put(CLASS_NAME,aclass.getName());
         values.put(QUANTITY,aclass.getQuantiy());
         values.put(TEACHER_ID,aclass.getTeacher_id());
+        values.put(SESSION,aclass.getSession());
 
         db.update(CLASS_TABLES,values,CLASS_ID+"="+'"'+id+'"',null);
         return true ;
@@ -273,7 +290,50 @@ public void addClass(Class aclass){
     // lấy danh sách lớp học
     public Cursor getDataClass(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM "+CLASS_TABLES,null);
+        Cursor cursor = db.rawQuery("SELECT classID, className, session, quantity,IDteacher, teacherName FROM " + CLASS_TABLES
+                + " INNER JOIN " + TEACHER_TABLE + " ON " + TEACHER_TABLE
+                + "." + TEACHER_ID + " = " + CLASS_TABLES + "." + ID_TEACHER, null);
+
+        return cursor;
+    }
+    public void addScore(Score score){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(TYPE,score.getType());
+        values.put(SCORE,score.getScore());
+        values.put(STUDENT_ID,score.getStudent_id());
+        values.put(SUBJECT_ID,score.getSubject_id());
+        db.insert(SCORE_TABLE,null,values);
+        db.close();
+
+    }
+    // cập nhật thông tin giảng viên
+    public boolean updateScore(Score score, int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+
+        values.put(TYPE,score.getType());
+        values.put(SCORE,score.getScore());
+        values.put(STUDENT_ID,score.getStudent_id());
+        values.put(SUBJECT_ID,score.getSubject_id());
+
+        db.update(SCORE_TABLE,values,SCORE_ID+"="+id,null);
+        return true ;
+    }
+    // xóa thông tin giảng viên
+    public int deleteScore(int id ) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int res =db.delete(SCORE_TABLE,SCORE_ID+"="+id,null);
+        return res;
+    }
+    // lấy danh sách giảng viên
+    public Cursor getDataScore(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+SCORE_TABLE,null);
 
         return cursor;
     }

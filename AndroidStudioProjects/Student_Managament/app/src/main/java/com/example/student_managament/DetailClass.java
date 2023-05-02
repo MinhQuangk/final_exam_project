@@ -27,7 +27,7 @@ public class DetailClass extends Fragment {
         sessionClass = root.findViewById(R.id.tvSession);
         quantityClass= root.findViewById(R.id.tvQuantity);
         teacherIdClass = root.findViewById(R.id.tvTeacher);
-
+        database = new Database(getActivity());
         classesManager = new ClassesManager();
 
         Bundle bundle = getArguments();
@@ -37,16 +37,16 @@ public class DetailClass extends Fragment {
         int quantity1 = bundle.getInt("quantity");
         String quantity= String.valueOf(quantity1);
         String session = bundle.getString("session");
-        int teacherId1 = bundle.getInt("teacherId");
-        String teacherId=String.valueOf(teacherId1);
+        String teacherName = bundle.getString("teacherName");
+
 
         idClass.setText(id);
         nameClass.setText(name);
         quantityClass.setText(quantity);
         sessionClass.setText(session);
-        teacherIdClass.setText(teacherId);
+        teacherIdClass.setText(teacherName);
 
-        database = new Database(getActivity());
+
         return root;
     }
 }

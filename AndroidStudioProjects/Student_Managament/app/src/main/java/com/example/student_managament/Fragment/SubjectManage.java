@@ -36,6 +36,8 @@ public class SubjectManage extends Fragment {
     private UpdateSubject updateSubject;
     private DetailSubject detailSubject;
     private AddSubject addSubject ;
+
+    private ScoreManager ScoreManager;
     private Button btnChange;
     private ArrayList<Subject> alSubject;
     @Override

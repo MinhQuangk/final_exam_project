@@ -85,16 +85,16 @@ public class ClassesManager extends Fragment {
             String id = cursor.getString(0);
             if (id.equals(pos)) {
                 String name = cursor.getString(1);
-                int quantity = cursor.getInt(2);
-                String session = cursor.getString(3);
-                int teacherId = cursor.getInt(4);
+                int quantity = cursor.getInt(3);
+                String session = cursor.getString(2);
+                String teacherName = cursor.getString(5);
 
                 Bundle args = new Bundle();
                 args.putString("id", id);
                 args.putString("name", name);
                 args.putInt("quantity", quantity);
                 args.putString("session", session);
-                args.putInt("teacherId", teacherId);
+                args.putString("teacherName", teacherName);
 
                 detailClass.setArguments(args);
                 ClassesManager.goToFragment(getFragmentManager(), R.id.framelayout,detailClass );
@@ -131,8 +131,8 @@ public class ClassesManager extends Fragment {
             String id = cursor.getString(0);
             if (id.equals(pos)) {
                 String name = cursor.getString(1);
-                int quantity = cursor.getInt(2);
-                String session = cursor.getString(3);
+                int quantity = cursor.getInt(3);
+                String session = cursor.getString(2);
                 int teacherId = cursor.getInt(4);
 
                 Bundle args = new Bundle();

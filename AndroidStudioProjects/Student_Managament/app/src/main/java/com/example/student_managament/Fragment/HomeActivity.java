@@ -25,8 +25,10 @@ public class HomeActivity extends Fragment implements View.OnClickListener {
     TeacherManager teacher ;
     SubjectManage subject;
     NoticeManager notice ;
-    ScoreManager score ;
+    ScoreManageListSubject score ;
     ClassesManager Class ;
+
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -35,7 +37,7 @@ public class HomeActivity extends Fragment implements View.OnClickListener {
         subject = new SubjectManage();
         teacher = new TeacherManager();
         notice = new NoticeManager();
-        score = new ScoreManager();
+        score = new ScoreManageListSubject();
         Class = new ClassesManager();
 
         StudentManage = root.findViewById(R.id.Student);
